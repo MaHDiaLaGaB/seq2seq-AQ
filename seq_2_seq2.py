@@ -3,15 +3,16 @@ import tensorflow as tf
 import logging
 
 
+# TODO i need to make you answer my question
 class Seq2SeqChatbot:
     def __init__(
-        self,
-        dataset_path,
-        max_seq_length=50,
-        embedding_dim=100,
-        batch_size=64,
-        epochs=100,
-        latent_dim=256,
+            self,
+            dataset_path,
+            max_seq_length=50,
+            embedding_dim=100,
+            batch_size=64,
+            epochs=100,
+            latent_dim=256,
     ):
         self.max_seq_length = max_seq_length
         self.embedding_dim = embedding_dim
@@ -117,6 +118,8 @@ class Seq2SeqChatbot:
         self.model = tf.keras.Model([encoder_inputs, decoder_inputs], decoder_outputs)
 
         # train the model
+        # TODO i think i have mistake here i followed this article when it comes to the encoder and decoder
+        # https://machinelearningmastery.com/develop-encoder-decoder-model-sequence-sequence-prediction-keras/
         logging.info("Training the model ... ")
         self.model.compile(
             optimizer="rmsprop", loss="sparse_categorical_crossentropy"
